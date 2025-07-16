@@ -136,7 +136,7 @@
 .scroller{
   width: 100%;
   position: relative;
-  height: 30dvh;
+  height: 70dvh;
   z-index: 11;
   /* background-color: red; */
 }
