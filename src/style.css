@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "raleway";
+}
+
+.container {
+  width: 100%;
+  min-height: 100dvh;
+  background-color: #eeeeee;
+  position: relative;
+  user-select: none;
+  position: relative;
+  /* overflow-y: hidden; */
+
+  /* top: 0; */
+}
+
+.leftpart {
+  position: sticky;
+  flex-basis: 40%;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.leftpart h1 {
+  font-size: 8vw;
+  font-weight: 300;
+  line-height: 1;
+  animation: frombelow .5s ease-in-out;
+}
+.leftpart button {
+  background-color: black;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all .2s ease-in-out;
+  animation: frombelow both .5s ease-in-out;
+  animation-delay: .3s ;
+}
+.leftpart button:hover{
+    transform: scale(1.05);
+}
+.leftpart button::after, .leftpart button::before{
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 100%;
+    top: 0;
+    background-color: purple;
+    transition: all .5s ease-in-out;
+}
+.leftpart button::after{
+    left: 50%;
+    /* background-color: red; */
+}
+.leftpart button::before{
+    right: 50%;
+    /* background-color: blue; */
+}
+.leftpart button:hover::after{
+    width: 50%;
+}
+.leftpart button:hover::before{
+    width: 50%;
+}
+.leftpart button a {
+  position: relative;
+  z-index: 10;
+  font-size: 1.3rem;
+  color: white;
+  text-decoration: none;
+}
+@keyframes frombelow {
+    0%{
+        transform: translateY(100px);
+        opacity: 0;
+    }100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+}
+/* @keyframes appear {
+  from{
+    opacity: 0;
+  }to{
+    opacity: 1;
+  }
+} */
+
+.rightpart {
+  flex-basis: 60%;
+  height: 100dvh;
+  position: sticky;
+  right: 0;
+  top: 0;
+  /* background-color: red; */
+}
+.rightpart a{
+  display: block;
+  font-size: 2.5rem;
+  text-decoration: none;
+  color: #fff;
+  font-family: "raleway";
+  font-weight: 700;
+}
+.rightpart .card{
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  padding: 10px;
+  border-radius: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+  animation: appear 1s ease-in;
+}
+
+.scroller{
+  width: 100%;
+  position: relative;
+  height: 30dvh;
+  z-index: 11;
+  /* background-color: red; */
+}
+.wrap{
+  width: 100%;
+  height: 100dvh;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  /* yahan mobile/tablet ke liye styles aayenge */
+  .card {
+    width: 90%;
+    border-radius: 20px;
+    transform: none;
+    top: 60%;
+  }
+
+  .leftpart h1 {
+    font-size: 12vw;
+    text-align: center;
+  }
+
+  .card:focus, .card:hover{
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+  }
+  .wrap {
+    flex-direction: column-reverse;
+  }
+  /* .container{
+    min-height: 90vh;
+  } */
+}
