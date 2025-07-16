@@ -38,7 +38,6 @@ const projects = [
   },
 ];
 const rightpart = document.querySelector(".rightpart");
-let l = projects.length -1;
 projects.forEach((project, index) => {
   const div = document.createElement("div");
   const link = document.createElement("a");
@@ -52,13 +51,13 @@ projects.forEach((project, index) => {
   div.style.zIndex = projects.length - index;
   div.classList.add("stay");
   rightpart.appendChild(div);
-  if(index < l){
+  
   const placeholder = document.createElement("div")
   placeholder.classList.add(`placeholder${index}`);
   placeholder.classList.add(`scroller`)
   document.querySelector('.container').appendChild(placeholder)
 
-  }
+  
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -75,11 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 cards.forEach((card, index)=>{
-  if(index == l) return;
 ScrollTrigger.create({
   trigger: `.placeholder${index}`,
-  start: "top 70%",
-  end: "top 70%",
+  start: "top 30%",
+  end: "top 30%",
   scrub: true,
   onEnter: ()=>{
     card.classList.remove("stay");
@@ -98,8 +96,8 @@ ScrollTrigger.create({
       scroller: "body",
       trigger: `.placeholder${index}`,
       scrub:true,
-      start: `top 70%`,
-      end: `top 70%`,
+      start: `top 30%`,
+      end: `top 30%`,
     }
   })
 
